@@ -19,6 +19,8 @@ spec:
                   resource: limits.memory
             - name: RABBITMQ_HOST
               value: rabbitmq
+            - name: THINGS_URL
+              value: http://iot-things
           image: ghcr.io/diwise/cip-functions:changeme
           imagePullPolicy: IfNotPresent
           livenessProbe:
