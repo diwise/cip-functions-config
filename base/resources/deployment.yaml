@@ -43,12 +43,4 @@ spec:
             httpGet:
               path: /health
               port: default-port
-          volumeMounts:
-            - name: conf-volume
-              mountPath: /opt/diwise/config
-              readOnly: true
       serviceAccountName: cip-functions
-      volumes:
-        - name: conf-volume
-          configMap:
-            name: cip-functions-cfg-cm
