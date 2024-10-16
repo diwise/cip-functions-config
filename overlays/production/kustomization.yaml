@@ -1,22 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-commonLabels:
-  app.kubernetes.io/name: cip-functions
+labels:
+  - pairs:
+      app.kubernetes.io/name: cip-functions
+    includeSelectors: true
 
 resources:
   - ../../base/
 
-patchesJson6902:
+patches:
   - target:
-      group: apps
-      version: v1
       kind: Deployment
       name: cip-functions
     path: patches/image.yaml
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: cip-functions
-    path: patches/deployment.yaml
